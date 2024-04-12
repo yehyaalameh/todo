@@ -1,0 +1,15 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "todo list",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "cd todo_app && yarn install",
+    "dev": "cd todo_app && yarn dev",
+    "build": "cd todo_app && yarn build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
