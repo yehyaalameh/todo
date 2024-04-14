@@ -13,16 +13,15 @@ const Form: React.FC<FormProps> = (props) => {
     console.log(input);
     if (input.length > 0) {
       props.onAdd(input);
-      
     }
-    
   };
+
 
   return (
     <div className="text-center">
       <form onSubmit={submitHandler}>
         <input
-          className="bg-slate-900 text-white placeholder-gray-300  mx-3 py-1 px-4 rounded-lg border border-purple-500 focus:outline-none focus:shadow-outline w-96"
+          className="bg-slate-900 text-white placeholder-gray-300 mx-3 py-1 px-4 rounded-lg border border-purple-500 focus:outline-none focus:shadow-outline w-96"
           type="text"
           placeholder="Add a new task"
           value={input}

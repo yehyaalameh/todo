@@ -20,8 +20,8 @@ const ProtectedRoute: React.FC<any> = ({ component: Component, ...rest }) => {
 const Routes: React.FC = () => {
   return (
     <Router>
-      <Route exact  path="/login" component={Login} />
-      <ProtectedRoute path="/" component={App} />
+      <Route  path="/login" component={Login} />
+      <Route path="/" component={App} />
     </Router>
   );
 };
