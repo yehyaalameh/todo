@@ -1,21 +1,21 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, } from "react-router-dom";
 import Login from "./Login";
 import App from "../App";
 
-const ProtectedRoute: React.FC<any> = ({ component: Component, ...rest }) => {
-  // Check authentication status here
-  const isAuthenticated = localStorage.getItem("authToken");
+// const ProtectedRoute: React.FC<any> = ({ component: Component, ...rest }) => {
+//   // Check authentication status here
+//   const isAuthenticated = localStorage.getItem("authToken");
 
-  return (
-    <Route
-      {...rest}
-      render={(props) =>
-        isAuthenticated ? <Component {...props} /> : <Redirect to="/login" />
-      }
-    />
-  );
-};
+//   return (
+//     <Route
+//       {...rest}
+//       render={(props) =>
+//         isAuthenticated ? <Component {...props} /> : <div></div>
+//       }
+//     />
+//   );
+// };
 
 const Routes: React.FC = () => {
   return (
