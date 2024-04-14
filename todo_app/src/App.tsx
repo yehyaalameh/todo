@@ -3,9 +3,9 @@ import Form from "./components/Form";
 import { FrappeProvider } from "frappe-react-sdk";
 import "./App.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckCircle, faTrashAlt, faTrashCan } from "@fortawesome/free-regular-svg-icons";
-import { faCheck, faTrash } from "@fortawesome/free-solid-svg-icons";
-import { faTrashCanArrowUp } from "@fortawesome/free-solid-svg-icons/faTrashCanArrowUp";
+import { faTrashAlt } from "@fortawesome/free-regular-svg-icons";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import Routes from "./components/Routes";
 
 const App: React.FC = () => {
   const [todos, setTodos] = React.useState<string[]>([]);
@@ -27,7 +27,8 @@ const App: React.FC = () => {
 
   return (
     <FrappeProvider>
-      <div className="App justify-center flex-auto bg-slate-900 rounded-xl py-9 text-white">
+      <Routes/>
+      <div className=" App justify-center flex-auto bg-slate-900 rounded-xl py-9 text-white">
         <Form onAdd={addTodoHandler} />
         <div className="mt-8 ml-6 justify-start font-bold text-purple-400">
           Tasks to do - {todos.length}
