@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Form from "./Form";
+import Form from "../Form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt, faCheck } from "@fortawesome/free-solid-svg-icons";
 
-const App: React.FC = () => {
+const List: React.FC = () => {
   const [todos, setTodos] = useState<string[]>([]);
   const [completed, setCompleted] = useState<string[]>([]);
 
@@ -100,4 +100,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default List;
