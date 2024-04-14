@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Form from "../src/components/Form";
+import Form from "../Form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt, faCheck } from "@fortawesome/free-solid-svg-icons";
 
@@ -23,10 +23,8 @@ const List: React.FC = () => {
 
   const addTodoHandler = async (enteredText: string) => {
     try {
-      const response = await axios.post("/api/resource/todo_1", {
-        title: enteredText,
-      });
-      setTodos((prevTodos) => [...prevTodos, response.data.data.title]);
+      await axios.post("/api/resource/todo_1", { title: enteredText });
+      setTodos((prevTodos) => [enteredText, ...prevTodos]);
     } catch (error) {
       console.error("Error adding todo:", error);
     }
@@ -43,29 +41,20 @@ const List: React.FC = () => {
     }
   };
 
- const completeHandler = async (todoToComplete: string) => {
-   try {
-     // Get the todo item ID based on its title (you might need to adjust this logic based on your actual data structure)
-     const todoItem = todos.find((todo) => todo === todoToComplete);
-     if (!todoItem) {
-       console.error("Todo item not found.");
-       return;
-     }
-
-     // Send a PUT request to update the status to "Completed"
-     await axios.put(`/api/resource/todo_1/${todoItem.id}`, {
-       status: "Completed",
-     });
-
-     // Update the state to remove the completed todo
-     setTodos((prevTodos) =>
-       prevTodos.filter((todo) => todo !== todoToComplete)
-     );
-     setCompleted((prevCompleted) => [...prevCompleted, todoToComplete]);
-   } catch (error) {
-     console.error("Error completing todo:", error);
-   }
- };
+  const completeHandler = async (todoToComplete: string) => {
+    try {
+      await axios.put(`/api/resource/todo_1/${todoToComplete}`, {
+        status: "Completed",
+      });
+      setTodos((prevTodos) =>
+        prevTodos.filter((todo) => todo !== todoToComplete)
+      );
+      setCompleted((prevCompleted) => [todoToComplete, ...prevCompleted]);
+    } catch (error) {
+      console.error("Error completing todo:", error);
+    }
+  };
+  console.log("here");
   return (
     <div className="App justify-center flex-auto bg-slate-900 rounded-xl py-9 text-white">
       <Form onAdd={addTodoHandler} />
